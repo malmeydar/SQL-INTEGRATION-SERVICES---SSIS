@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="12/8/2022 3:48:58 PM"
@@ -11,9 +11,1948 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionGUID="{52457345-0CD9-4F55-A5F7-D0D24800FB2C}">
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{C09D7068-4E02-405E-A4DE-2B9F72CFD5DC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-M0KHQK9.MONROE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{35642EE9-C233-4AAC-A2D8-F9B05B18A0BB}"
+      DTS:ObjectName="DESKTOP-M0KHQK9.MONROE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-M0KHQK9;Initial Catalog=MONROE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{35642EE9-C233-4AAC-A2D8-F9B05B18A0BB}DESKTOP-M0KHQK9.MONROE;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Origen TXT Persona]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{FBB73825-975B-40F7-A82D-78A9E35D9970}"
+      DTS:ObjectName="Origen TXT Persona">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="3082"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\Udemy\SQL INTEGRATION SERVICES\Data_SSISProcesosETLCargarAndConsumoXML\DataPersona.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PersonaID"
+              DTS:DTSID="{2FFFC564-5328-4C42-B268-C68C02A01CAE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Nombre"
+              DTS:DTSID="{C5E3BBAB-F5BB-43D8-B5EA-2242C79D7640}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Direccion"
+              DTS:DTSID="{882E3913-8191-4F34-917E-25411593AF5B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Ciudad"
+              DTS:DTSID="{58CB4CEA-B427-4D65-BAAF-38F852BC9987}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CodigoPostal"
+              DTS:DTSID="{CBB12B5A-4ACB-466A-9D54-E99392AADF66}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Telefono"
+              DTS:DTSID="{1EAD34B1-4D6C-4C1B-BA92-F5231F1424AA}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
-  <DTS:Executables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Carga Archivo XML Persona"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{A76A5DD2-5ADE-4C79-9735-4D00D9248555}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Carga Archivo XML Persona"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Carga Archivo XML Persona\Carga Tabla Persona"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Carga Tabla Persona"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[PERSONA]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-M0KHQK9.MONROE]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-M0KHQK9.MONROE]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Inputs[Entrada de destino de OLE DB].Columns[Copy of PersonaID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of PersonaID"
+                      externalMetadataColumnId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Inputs[Entrada de destino de OLE DB].ExternalColumns[PersonaID]"
+                      lineageId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of PersonaID]" />
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Inputs[Entrada de destino de OLE DB].Columns[Copy of Nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of Nombre"
+                      externalMetadataColumnId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre]"
+                      lineageId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of Nombre]" />
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Inputs[Entrada de destino de OLE DB].Columns[Copy of Direccion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of Direccion"
+                      externalMetadataColumnId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Inputs[Entrada de destino de OLE DB].ExternalColumns[Direccion]"
+                      lineageId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of Direccion]" />
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Inputs[Entrada de destino de OLE DB].Columns[Copy of Ciudad]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of Ciudad"
+                      externalMetadataColumnId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Inputs[Entrada de destino de OLE DB].ExternalColumns[Ciudad]"
+                      lineageId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of Ciudad]" />
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Inputs[Entrada de destino de OLE DB].Columns[Copy of CodigoPostal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of CodigoPostal"
+                      externalMetadataColumnId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoPostal]"
+                      lineageId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of CodigoPostal]" />
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Inputs[Entrada de destino de OLE DB].Columns[Copy of Telefono]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of Telefono"
+                      externalMetadataColumnId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Inputs[Entrada de destino de OLE DB].ExternalColumns[Telefono]"
+                      lineageId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of Telefono]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Inputs[Entrada de destino de OLE DB].ExternalColumns[PersonaID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PersonaID" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Inputs[Entrada de destino de OLE DB].ExternalColumns[Direccion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Direccion" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Inputs[Entrada de destino de OLE DB].ExternalColumns[Ciudad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Ciudad" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Inputs[Entrada de destino de OLE DB].ExternalColumns[CodigoPostal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CodigoPostal" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Inputs[Entrada de destino de OLE DB].ExternalColumns[Telefono]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Telefono" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Archivo XML Persona\Conversion TXT Persona"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversion TXT Persona"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Inputs[Entrada de conversión de datos].Columns[PersonaID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PersonaID"
+                      lineageId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].Columns[PersonaID]" />
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Inputs[Entrada de conversión de datos].Columns[Nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Nombre"
+                      lineageId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].Columns[Nombre]" />
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Inputs[Entrada de conversión de datos].Columns[Direccion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Direccion"
+                      lineageId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].Columns[Direccion]" />
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Inputs[Entrada de conversión de datos].Columns[Ciudad]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Ciudad"
+                      lineageId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].Columns[Ciudad]" />
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Inputs[Entrada de conversión de datos].Columns[CodigoPostal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CodigoPostal"
+                      lineageId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].Columns[CodigoPostal]" />
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Inputs[Entrada de conversión de datos].Columns[Telefono]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Telefono"
+                      lineageId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].Columns[Telefono]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de conversión de datos].Columns[Copy of PersonaID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de conversión de datos].Columns[Copy of PersonaID]"
+                      name="Copy of PersonaID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].Columns[PersonaID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de conversión de datos].Columns[Copy of Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de conversión de datos].Columns[Copy of Nombre]"
+                      name="Copy of Nombre"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].Columns[Nombre]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de conversión de datos].Columns[Copy of Direccion]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de conversión de datos].Columns[Copy of Direccion]"
+                      name="Copy of Direccion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].Columns[Direccion]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de conversión de datos].Columns[Copy of Ciudad]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de conversión de datos].Columns[Copy of Ciudad]"
+                      name="Copy of Ciudad"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].Columns[Ciudad]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de conversión de datos].Columns[Copy of CodigoPostal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de conversión de datos].Columns[Copy of CodigoPostal]"
+                      name="Copy of CodigoPostal"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].Columns[CodigoPostal]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de conversión de datos].Columns[Copy of Telefono]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de conversión de datos].Columns[Copy of Telefono]"
+                      name="Copy of Telefono"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].Columns[Telefono]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Archivo XML Persona\Conversion XML Persona"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversion XML Persona"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Carga Archivo XML Persona\Conversion XML Persona.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion XML Persona.Inputs[Entrada de conversión de datos].Columns[PersonaID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PersonaID"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[PersonaID]" />
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion XML Persona.Inputs[Entrada de conversión de datos].Columns[Nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Nombre"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[Nombre]" />
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion XML Persona.Inputs[Entrada de conversión de datos].Columns[Direccion]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Direccion"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[Direccion]" />
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion XML Persona.Inputs[Entrada de conversión de datos].Columns[Ciudad]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Ciudad"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[Ciudad]" />
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion XML Persona.Inputs[Entrada de conversión de datos].Columns[CodigoPostal]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CodigoPostal"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[CodigoPostal]" />
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion XML Persona.Inputs[Entrada de conversión de datos].Columns[Telefono]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Telefono"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[Telefono]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Carga Archivo XML Persona\Conversion XML Persona.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de conversión de datos].Columns[Copy of PersonaID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de conversión de datos].Columns[Copy of PersonaID]"
+                      name="Copy of PersonaID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[PersonaID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de conversión de datos].Columns[Copy of Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de conversión de datos].Columns[Copy of Nombre]"
+                      name="Copy of Nombre"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[Nombre]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de conversión de datos].Columns[Copy of Direccion]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de conversión de datos].Columns[Copy of Direccion]"
+                      name="Copy of Direccion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[Direccion]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de conversión de datos].Columns[Copy of Ciudad]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de conversión de datos].Columns[Copy of Ciudad]"
+                      name="Copy of Ciudad"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[Ciudad]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de conversión de datos].Columns[Copy of CodigoPostal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de conversión de datos].Columns[Copy of CodigoPostal]"
+                      name="Copy of CodigoPostal"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[CodigoPostal]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de conversión de datos].Columns[Copy of Telefono]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de conversión de datos].Columns[Copy of Telefono]"
+                      name="Copy of Telefono"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[Telefono]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Carga Archivo XML Persona\Conversion XML Persona.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Archivo XML Persona\Origen TXT Persona"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Origen de archivo plano;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de archivo plano"
+              localeId="3082"
+              name="Origen TXT Persona"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si las columnas de longitud cero se tratan como NULL."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre de una columna de salida que contiene el nombre de archivo. Si no se especifica ningún nombre, no se genera ninguna columna de salida con el nombre de archivo."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Carga Archivo XML Persona\Origen TXT Persona.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Origen TXT Persona]"
+                  connectionManagerRefId="Package.ConnectionManagers[Origen TXT Persona]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano]"
+                  name="Salida de origen de archivo plano">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].Columns[PersonaID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].ExternalColumns[PersonaID]"
+                      length="50"
+                      lineageId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].Columns[PersonaID]"
+                      name="PersonaID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].Columns[Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].ExternalColumns[Nombre]"
+                      length="50"
+                      lineageId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].Columns[Nombre]"
+                      name="Nombre"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].Columns[Direccion]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].ExternalColumns[Direccion]"
+                      length="50"
+                      lineageId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].Columns[Direccion]"
+                      name="Direccion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].Columns[Ciudad]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].ExternalColumns[Ciudad]"
+                      length="50"
+                      lineageId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].Columns[Ciudad]"
+                      name="Ciudad"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].Columns[CodigoPostal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].ExternalColumns[CodigoPostal]"
+                      length="50"
+                      lineageId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].Columns[CodigoPostal]"
+                      name="CodigoPostal"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].Columns[Telefono]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].ExternalColumns[Telefono]"
+                      length="50"
+                      lineageId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].Columns[Telefono]"
+                      name="Telefono"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].ExternalColumns[PersonaID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PersonaID" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].ExternalColumns[Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].ExternalColumns[Direccion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Direccion" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].ExternalColumns[Ciudad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Ciudad" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].ExternalColumns[CodigoPostal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CodigoPostal" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano].ExternalColumns[Telefono]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Telefono" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de error de origen de archivo plano]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de archivo plano">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de error de origen de archivo plano].Columns[Columna de salida de error de origen de archivo plano]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Columna de salida de error de origen de archivo plano"
+                      lineageId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de error de origen de archivo plano].Columns[Columna de salida de error de origen de archivo plano]"
+                      name="Columna de salida de error de origen de archivo plano" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de error de origen de archivo plano].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de error de origen de archivo plano].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de error de origen de archivo plano].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de error de origen de archivo plano].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Archivo XML Persona\Origen XML Persona"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Extrae datos de un archivo XML. Por ejemplo, se usa para extraer los datos de catálogo de un archivo XML que representa catálogos y elementos de catálogo. Antes de usar la tarea, se debe especificar el esquema y generar una salida para cada elemento XML.;Microsoft Corporation;Microsoft SQL Server; Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Extrae datos de un archivo XML. Por ejemplo, se usa para extraer los datos de catálogo de un archivo XML que representa catálogos y elementos de catálogo. Antes de usar la tarea, se debe especificar el esquema y generar una salida para cada elemento XML."
+              name="Origen XML Persona"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.XmlSourceAdapter</property>
+                <property
+                  dataType="System.String"
+                  description="Datos XML que usa el adaptador de origen XML."
+                  expressionType="Notify"
+                  name="XMLData">D:\Udemy\SQL INTEGRATION SERVICES\Data_SSISProcesosETLCargarAndConsumoXML\DataPersona.xml</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que usa el adaptador de origen XML para especificar datos XML."
+                  name="XMLDataVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Define cómo obtiene el adaptador de origen XML los datos XML."
+                  name="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Definición de esquema XML que usa el adaptador de origen XML."
+                  expressionType="Notify"
+                  name="XMLSchemaDefinition">D:\Udemy\SQL INTEGRATION SERVICES\Data_SSISProcesosETLCargarAndConsumoXML\DataPersona.xsd</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Identifica si se usará el esquema insertado."
+                  name="UseInlineSchema">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Define cómo se asignan los tipos de enteros XML."
+                  name="XMLIntegerMapping"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.XmlSourceAdapter+XMLIntegerMappingConverter">0</property>
+              </properties>
+              <outputs>
+                <output
+                  refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona]"
+                  name="Persona">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Identifica el conjunto de filas asociado a la salida."
+                      name="RowsetID">Persona</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[PersonaID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].ExternalColumns[PersonaID]"
+                      length="255"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[PersonaID]"
+                      name="PersonaID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[Nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].ExternalColumns[Nombre]"
+                      length="255"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[Nombre]"
+                      name="Nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[Direccion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].ExternalColumns[Direccion]"
+                      length="255"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[Direccion]"
+                      name="Direccion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[Ciudad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].ExternalColumns[Ciudad]"
+                      length="255"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[Ciudad]"
+                      name="Ciudad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[CodigoPostal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].ExternalColumns[CodigoPostal]"
+                      length="255"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[CodigoPostal]"
+                      name="CodigoPostal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[Telefono]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].ExternalColumns[Telefono]"
+                      length="255"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[Telefono]"
+                      name="Telefono"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].ExternalColumns[PersonaID]"
+                      dataType="wstr"
+                      length="255"
+                      name="PersonaID">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].ExternalColumns[Nombre]"
+                      dataType="wstr"
+                      length="255"
+                      name="Nombre">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].ExternalColumns[Direccion]"
+                      dataType="wstr"
+                      length="255"
+                      name="Direccion">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].ExternalColumns[Ciudad]"
+                      dataType="wstr"
+                      length="255"
+                      name="Ciudad">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].ExternalColumns[CodigoPostal]"
+                      dataType="wstr"
+                      length="255"
+                      name="CodigoPostal">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].ExternalColumns[Telefono]"
+                      dataType="wstr"
+                      length="255"
+                      name="Telefono">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona]"
+                  isErrorOut="true"
+                  name="Salida de error de Persona">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Identifica el conjunto de filas asociado a la salida."
+                      name="RowsetID">Persona</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].Columns[PersonaID]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].ExternalColumns[PersonaID]"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].Columns[PersonaID]"
+                      name="PersonaID" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].Columns[Nombre]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].ExternalColumns[Nombre]"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].Columns[Nombre]"
+                      name="Nombre" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].Columns[Direccion]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].ExternalColumns[Direccion]"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].Columns[Direccion]"
+                      name="Direccion" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].Columns[Ciudad]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].ExternalColumns[Ciudad]"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].Columns[Ciudad]"
+                      name="Ciudad" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].Columns[CodigoPostal]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].ExternalColumns[CodigoPostal]"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].Columns[CodigoPostal]"
+                      name="CodigoPostal" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].Columns[Telefono]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].ExternalColumns[Telefono]"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].Columns[Telefono]"
+                      name="Telefono" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].ExternalColumns[PersonaID]"
+                      dataType="nText"
+                      name="PersonaID" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].ExternalColumns[Nombre]"
+                      dataType="nText"
+                      name="Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].ExternalColumns[Direccion]"
+                      dataType="nText"
+                      name="Direccion" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].ExternalColumns[Ciudad]"
+                      dataType="nText"
+                      name="Ciudad" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].ExternalColumns[CodigoPostal]"
+                      dataType="nText"
+                      name="CodigoPostal" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Salida de error de Persona].ExternalColumns[Telefono]"
+                      dataType="nText"
+                      name="Telefono" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Carga Archivo XML Persona\Unión de todo"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Unión de todo;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina las filas de varios flujos de datos sin ordenarlos. Por ejemplo, devuelve filas a un flujo de datos después de corregir los errores. Si el orden es importante, se recomienda usar la transformación Mezclar."
+              name="Unión de todo"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Carga Archivo XML Persona\Unión de todo.Inputs[Entrada de Unión de todo 1]"
+                  name="Entrada de Unión de todo 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[PersonaID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PersonaID"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[PersonaID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[PersonaID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[Nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Nombre"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[Nombre]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Nombre]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[Direccion]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Direccion"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[Direccion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Direccion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[Ciudad]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Ciudad"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[Ciudad]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Ciudad]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[CodigoPostal]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CodigoPostal"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[CodigoPostal]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[CodigoPostal]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[Telefono]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Telefono"
+                      lineageId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona].Columns[Telefono]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Telefono]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[Copy of PersonaID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of PersonaID"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de conversión de datos].Columns[Copy of PersonaID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of PersonaID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[Copy of Nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of Nombre"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de conversión de datos].Columns[Copy of Nombre]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of Nombre]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[Copy of Direccion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of Direccion"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de conversión de datos].Columns[Copy of Direccion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of Direccion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[Copy of Ciudad]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of Ciudad"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de conversión de datos].Columns[Copy of Ciudad]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of Ciudad]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[Copy of CodigoPostal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of CodigoPostal"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de conversión de datos].Columns[Copy of CodigoPostal]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of CodigoPostal]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[Copy of Telefono]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of Telefono"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de conversión de datos].Columns[Copy of Telefono]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of Telefono]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Carga Archivo XML Persona\Unión de todo.Inputs[Entrada de Unión de todo 2]"
+                  hasSideEffects="true"
+                  name="Entrada de Unión de todo 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[Copy of PersonaID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of PersonaID"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de conversión de datos].Columns[Copy of PersonaID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of PersonaID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[Copy of Nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of Nombre"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de conversión de datos].Columns[Copy of Nombre]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of Nombre]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[Copy of Direccion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of Direccion"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de conversión de datos].Columns[Copy of Direccion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of Direccion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[Copy of Ciudad]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of Ciudad"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de conversión de datos].Columns[Copy of Ciudad]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of Ciudad]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[Copy of CodigoPostal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of CodigoPostal"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de conversión de datos].Columns[Copy of CodigoPostal]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of CodigoPostal]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[Copy of Telefono]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of Telefono"
+                      lineageId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de conversión de datos].Columns[Copy of Telefono]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of Telefono]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Carga Archivo XML Persona\Unión de todo.Inputs[Entrada de Unión de todo 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Entrada de Unión de todo 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1]"
+                  name="Salida de Unión de todo 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[PersonaID]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[PersonaID]"
+                      name="PersonaID" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Nombre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Nombre]"
+                      name="Nombre" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Direccion]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Direccion]"
+                      name="Direccion" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Ciudad]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Ciudad]"
+                      name="Ciudad" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[CodigoPostal]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[CodigoPostal]"
+                      name="CodigoPostal" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Telefono]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Telefono]"
+                      name="Telefono" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of PersonaID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of PersonaID]"
+                      name="Copy of PersonaID" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of Nombre]"
+                      name="Copy of Nombre" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of Direccion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of Direccion]"
+                      name="Copy of Direccion" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of Ciudad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of Ciudad]"
+                      name="Copy of Ciudad" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of CodigoPostal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of CodigoPostal]"
+                      name="Copy of CodigoPostal" />
+                    <outputColumn
+                      refId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of Telefono]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Copy of Telefono]"
+                      name="Copy of Telefono" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Carga Archivo XML Persona.Paths[Persona]"
+              endId="Package\Carga Archivo XML Persona\Conversion XML Persona.Inputs[Entrada de conversión de datos]"
+              name="Persona"
+              startId="Package\Carga Archivo XML Persona\Origen XML Persona.Outputs[Persona]" />
+            <path
+              refId="Package\Carga Archivo XML Persona.Paths[Salida de conversión de datos]"
+              endId="Package\Carga Archivo XML Persona\Unión de todo.Inputs[Entrada de Unión de todo 1]"
+              name="Salida de conversión de datos"
+              startId="Package\Carga Archivo XML Persona\Conversion XML Persona.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Carga Archivo XML Persona.Paths[Salida de conversión de datos1]"
+              endId="Package\Carga Archivo XML Persona\Unión de todo.Inputs[Entrada de Unión de todo 2]"
+              name="Salida de conversión de datos"
+              startId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Carga Archivo XML Persona.Paths[Salida de origen de archivo plano]"
+              endId="Package\Carga Archivo XML Persona\Conversion TXT Persona.Inputs[Entrada de conversión de datos]"
+              name="Salida de origen de archivo plano"
+              startId="Package\Carga Archivo XML Persona\Origen TXT Persona.Outputs[Salida de origen de archivo plano]" />
+            <path
+              refId="Package\Carga Archivo XML Persona.Paths[Salida de Unión de todo 1]"
+              endId="Package\Carga Archivo XML Persona\Carga Tabla Persona.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de Unión de todo 1"
+              startId="Package\Carga Archivo XML Persona\Unión de todo.Outputs[Salida de Unión de todo 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Limpiar Tabla Persona"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{49ADFFE8-0D93-49FA-9C82-D90FADD6D3E2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Limpiar Tabla Persona"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{35642EE9-C233-4AAC-A2D8-F9B05B18A0BB}"
+          SQLTask:SqlStatementSource="DELETE FROM PERSONA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{D150FC0D-C674-4EEE-BB3F-F0D221B29EE0}"
+      DTS:From="Package\Limpiar Tabla Persona"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Carga Archivo XML Persona" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Limpiar Tabla Persona"
+          TopLeft="221.5,113.5" />
+        <NodeLayout
+          Size="218,42"
+          Id="Package\Carga Archivo XML Persona"
+          TopLeft="262.5,246.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="316.5,155.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="55,91"
+              Start="0,0"
+              End="55,83.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.5"
+                    Point2="0,45.5"
+                    Point3="4,45.5" />
+                  <mssgle:LineSegment
+                    End="51,45.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="51,45.5"
+                    Point2="55,45.5"
+                    Point3="55,49.5" />
+                  <mssgle:LineSegment
+                    End="55,83.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Carga Archivo XML Persona">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Carga Archivo XML Persona\Origen XML Persona"
+          TopLeft="82,60" />
+        <NodeLayout
+          Size="204,42"
+          Id="Package\Carga Archivo XML Persona\Conversion XML Persona"
+          TopLeft="94,153" />
+        <EdgeLayout
+          Id="Package\Carga Archivo XML Persona.Paths[Persona]"
+          TopLeft="173,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15.5,51"
+              Start="0,0"
+              End="15.5,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5"
+                    Point2="0,25.5"
+                    Point3="4,25.5" />
+                  <mssgle:LineSegment
+                    End="11.5,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.5,25.5"
+                    Point2="15.5,25.5"
+                    Point3="15.5,29.5" />
+                  <mssgle:LineSegment
+                    End="15.5,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Carga Archivo XML Persona\Carga Tabla Persona"
+          TopLeft="277,344" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Carga Archivo XML Persona\Origen TXT Persona"
+          TopLeft="402,73" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\Carga Archivo XML Persona\Conversion TXT Persona"
+          TopLeft="388,141" />
+        <EdgeLayout
+          Id="Package\Carga Archivo XML Persona.Paths[Salida de origen de archivo plano]"
+          TopLeft="490.5,115">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26"
+              Start="0,0"
+              End="0,18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="147,42"
+          Id="Package\Carga Archivo XML Persona\Unión de todo"
+          TopLeft="315,248" />
+        <EdgeLayout
+          Id="Package\Carga Archivo XML Persona.Paths[Salida de conversión de datos]"
+          TopLeft="196,195">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="192.5,53"
+              Start="0,0"
+              End="192.5,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="4,26.5" />
+                  <mssgle:LineSegment
+                    End="188.5,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="188.5,26.5"
+                    Point2="192.5,26.5"
+                    Point3="192.5,30.5" />
+                  <mssgle:LineSegment
+                    End="192.5,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga Archivo XML Persona.Paths[Salida de conversión de datos1]"
+          TopLeft="489,183">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-77.3333333333334,65"
+              Start="0,0"
+              End="-77.3333333333334,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5800807537012" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.5800807537012"
+                    Point2="0,38.5800807537012"
+                    Point3="-4,38.5800807537012" />
+                  <mssgle:LineSegment
+                    End="-73.3333333333334,38.5800807537012" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-73.3333333333334,38.5800807537012"
+                    Point2="-77.3333333333334,38.5800807537012"
+                    Point3="-77.3333333333334,42.5800807537012" />
+                  <mssgle:LineSegment
+                    End="-77.3333333333334,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga Archivo XML Persona.Paths[Salida de Unión de todo 1]"
+          TopLeft="388.5,290">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20,54"
+              Start="0,0"
+              End="-20,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23"
+                    Point2="0,27"
+                    Point3="-4,27" />
+                  <mssgle:LineSegment
+                    End="-16,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16,27"
+                    Point2="-20,27"
+                    Point3="-20,31" />
+                  <mssgle:LineSegment
+                    End="-20,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga Archivo XML Persona\Carga Tabla Persona">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
