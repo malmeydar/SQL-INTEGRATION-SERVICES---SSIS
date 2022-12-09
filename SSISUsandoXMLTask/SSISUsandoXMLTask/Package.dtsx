@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="12/8/2022 9:01:35 PM"
@@ -11,9 +11,83 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionGUID="{07266E2E-B221-4E79-A066-77DF593682A9}">
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{09F74B50-B534-421E-B750-3FEDB25562DB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BaseLibroDiff.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{685ABD2E-5F56-412D-A10D-C81B373ED3AF}"
+      DTS:ObjectName="BaseLibroDiff.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="D:\Udemy\SQL INTEGRATION SERVICES\Data_SSISUsandoXMLTask\Diff\Diff\BaseLibroDiff.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LibroDiff.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{FB4084A3-5F26-4D99-9AE1-D914918E7D5D}"
+      DTS:ObjectName="LibroDiff.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="D:\Udemy\SQL INTEGRATION SERVICES\Data_SSISUsandoXMLTask\Diff\Diff\LibroDiff.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LibroDiffResult.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{9071D0C3-ECBF-4547-ACBF-1B43F8838963}"
+      DTS:ObjectName="LibroDiffResult.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="D:\Udemy\SQL INTEGRATION SERVICES\Data_SSISUsandoXMLTask\Diff\Diff\LibroDiffResult.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
-  <DTS:Executables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Xml to Diff"
+      DTS:CreationName="Microsoft.XMLTask"
+      DTS:Description="Tarea XML"
+      DTS:DTSID="{9F535358-0222-446B-8997-2C14E82F7BF2}"
+      DTS:ExecutableType="Microsoft.XMLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Xml to Diff"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <XMLTaskData
+          Source="BaseLibroDiff.xml"
+          SecondOperandType="FileConnection"
+          SecondOperand="LibroDiff.xml"
+          SaveDiffGram="True"
+          DiffGramDestination="LibroDiffResult.xml" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Xml to Diff"
+          TopLeft="186,137" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
