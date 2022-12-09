@@ -26,17 +26,35 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-M0KHQK9</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAApuVhmhG4pEK4nuGT8ED0nQAAAAACAAAAAAAQZgAAAAEAACAAAAA7i6Z9EKCFDK4cikueOkmYjY24Q7gFiU3l04S2D/LAfwAAAAAOgAAAAAIAACAAAAAOA21Nzy/eKOL6+36G+5ZADoqcJRQzyN3diRtApT1cAJAAAAAJkQmF5oF5xWqrA+O7UPrY7My7pNflC4AS+Zo8fUVHdh1wL6Pw3/VfVavkb4V4G7B/RHR9FaP/e4Q32hg1A0am4a3Pt+VcIgvfXkrXF+cW8ye5/S1oZLzCQGVYraGlBBHInTVR4MXnI+DeGX/HQMd45jcdA4gG+Mr+bI5qtu65i05hvmk579gavYlVqBXyDvRAAAAAPYWuY2UqL9bSJMFdTZjNgcVi+C/FCmBlzFCaUTVcEnJnFmSicYqEiTJa+rVJSH4FgNF0TNx5sp/rN2uChZ3KAA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAApuVhmhG4pEK4nuGT8ED0nQAAAAACAAAAAAAQZgAAAAEAACAAAAARSl3REsF24GE1SyUGgVrja5XJg2fWA9fTP9cNFN9+VgAAAAAOgAAAAAIAACAAAADV35prMvGFebwh0KTtQJPJ8lyEzBtAs+4D68i8gWBEL5AAAAAXGdTc4UVMQgesSdCmeuRAg3mOfTKlbNdMQ9+gsEIq+DTSM/weYW4JKpMekQdEy4/DpjXvl2InLJt9rFpl0qASSkyGAJzg6EHZj6lM/f15xSMmIaf0X+jUoDOcRal2f4YHt4qd9TWto2NIwBe/3U1Fot0POgguddaSpRTU+uf97nCcBpoAhrikfYDRVjbRkZRAAAAAc8yzZ4RUGAG6eUezbt2xxUIFd9PICB7kJcz2lOO45XqS7+HJj52gS1+An42mfdmF1PaV5YPC2mEsL958z6g8eQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
-          <SSIS:Package SSIS:Name="BulkCopyProgramBCP.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="PkgBulkCopyProgramBCP2.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="PkgBulkCopyProgramBCP1.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers />
         <SSIS:DeploymentInfo>
           <SSIS:ProjectConnectionParameters />
           <SSIS:PackageInfo>
-            <SSIS:PackageMetaData SSIS:Name="BulkCopyProgramBCP.dtsx">
+            <SSIS:PackageMetaData SSIS:Name="PkgBulkCopyProgramBCP2.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{A40E36DB-B79F-43BC-9A35-B590B5DF5C8E}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Package1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{C64D518C-67BA-4FC7-9B1A-D2864D2E9162}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="PkgBulkCopyProgramBCP1.dtsx">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">{F4E1456E-324E-428F-8097-B5506EDDE475}</SSIS:Property>
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
