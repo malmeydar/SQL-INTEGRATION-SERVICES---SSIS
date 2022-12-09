@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33027.164
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "SSISBulkCopyProgramBCP", "SSISBulkCopyProgramBCP\SSISBulkCopyProgramBCP.dtproj", "{C7BD7A6C-4130-48AA-A109-E1CBEC5B5DBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7BD7A6C-4130-48AA-A109-E1CBEC5B5DBE}.Development|Default.ActiveCfg = Development
+		{C7BD7A6C-4130-48AA-A109-E1CBEC5B5DBE}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D0E464D3-B33B-429D-9562-E66A1D20C351}
+	EndGlobalSection
+EndGlobal
