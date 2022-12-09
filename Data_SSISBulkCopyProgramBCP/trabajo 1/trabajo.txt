@@ -1,2 +1,0 @@
-exportar la tabla customer de mas de 18 mil registros
-a un txt
