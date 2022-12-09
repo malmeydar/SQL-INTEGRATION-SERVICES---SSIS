@@ -1,0 +1,100 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/8/2022 7:40:37 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-M0KHQK9"
+  DTS:CreatorName="DESKTOP-M0KHQK9\MIGUE"
+  DTS:DTSID="{C3B1C271-CBEA-4DCB-BB25-8D68D74F0198}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.948.0"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{67E36B2E-9196-49B4-BFD3-807F10D254C9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[HTTP Connection Manager]"
+      DTS:CreationName="HTTP"
+      DTS:DTSID="{AB72547F-E531-4E3C-9A83-7F4BCF244858}"
+      DTS:ObjectName="HTTP Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="https://footballpool.dataaccess.eu/info.wso?WSDL">
+          <DTS:HttpConnection
+            DTS:ServerURL="https://footballpool.dataaccess.eu/info.wso?WSDL">
+            <DTS:Property
+              DTS:Name="ServerPassword"
+              Sensitive="1"
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAApuVhmhG4pEK4nuGT8ED0nQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC1MSGJgh3yafKHJ6fW3dc32dia3yvamuLOSoClsz1BMAAAAAAOgAAAAAIAACAAAADMbmNWHOlutILSzsp2vdlpVrLLev6839N/i1mpFFQrWhAAAACVGJXj7oYGr1TJlFFFQI7zQAAAAELcHBX7nyFnJVfelJdV/nIvpPjzbDwy0npBCkko82KxCVhWCHvyUI7OSh3Zu8EsMVmho3/FwItQ/eW8gfIZ5Ho</DTS:Property>
+            <DTS:Property
+              DTS:Name="ProxyPassword"
+              Sensitive="1"
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAApuVhmhG4pEK4nuGT8ED0nQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB4Oyi+lIVLF5yiS19l4o7QbcRNqhN8YVa6Ucaf9GKVtQAAAAAOgAAAAAIAACAAAADU7noEd7oF4Qe/DspWB6u+yjRiWPjdS4dMozppDwsbfBAAAADAh85HHcSXC1Va3fOLmmsyQAAAAB0KSROD63wl76EyV1P3Kkpsgzr8ZRtF+FvFhnWE/def9XcICgWvPgkyUVZVLfCXI8iK9CXxHNFH/hQjx7d/ZlY</DTS:Property>
+          </DTS:HttpConnection>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[JugadoresConTarjetasRojasAmarillas.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{8274923A-6B70-4EC8-BE9F-111828EF9A47}"
+      DTS:ObjectName="JugadoresConTarjetasRojasAmarillas.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="D:\Udemy\SQL INTEGRATION SERVICES\Data_SSISConsumoWebServicesWST\JugadoresConTarjetasRojasAmarillas.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Web Services Futbol"
+      DTS:CreationName="Microsoft.WebServiceTask"
+      DTS:Description="Tarea Servicio Web"
+      DTS:DTSID="{C1D1C022-DC5F-4AE9-AD66-41B6254B746A}"
+      DTS:ExecutableType="Microsoft.WebServiceTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Web Services Futbol"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <WSTask:WebServiceTaskData
+          WSTask:ConnectionName="{AB72547F-E531-4E3C-9A83-7F4BCF244858}"
+          WSTask:Service="Info"
+          WSTask:WSDLFile="D:\Udemy\SQL INTEGRATION SERVICES\Data_SSISConsumoWebServicesWST\Futbol.wsdl"
+          WSTask:OverwriteWSDLFile="True"
+          WSTask:OutputLocation="JugadoresConTarjetasRojasAmarillas.xml" xmlns:WSTask="www.microsoft.com/sqlserver/dts/tasks/webservicetask">
+          <WSTask:MethodInfo
+            WSTask:MethodName="AllPlayersWithCards"
+            WSTask:MessageName="">
+            <WSTask:Documentation>Returns an array with the names of all players that have a yellow or a red card. The number of yellow and red cards is returned.</WSTask:Documentation>
+          </WSTask:MethodInfo>
+        </WSTask:WebServiceTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Web Services Futbol"
+          TopLeft="146,35" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
