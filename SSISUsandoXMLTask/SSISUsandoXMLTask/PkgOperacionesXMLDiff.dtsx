@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{09F74B50-B534-421E-B750-3FEDB25562DB}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{9663466F-BD23-4672-A8C8-8972211F8A40}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,6 +24,16 @@
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="D:\Udemy\SQL INTEGRATION SERVICES\Data_SSISUsandoXMLTask\Diff\Diff\BaseLibroDiff.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BaseLibroMerge.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{46E85BD5-BA1A-4D2D-AF10-68C11C64C76C}"
+      DTS:ObjectName="BaseLibroMerge.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="D:\Udemy\SQL INTEGRATION SERVICES\Data_SSISUsandoXMLTask\Merge\BaseLibroMerge.xml" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -47,9 +57,51 @@
           DTS:ConnectionString="D:\Udemy\SQL INTEGRATION SERVICES\Data_SSISUsandoXMLTask\Diff\Diff\LibroDiffResult.xml" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LibroMerge.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{EDA2EE7C-15A1-4AF9-92BF-831095D2C8C8}"
+      DTS:ObjectName="LibroMerge.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="D:\Udemy\SQL INTEGRATION SERVICES\Data_SSISUsandoXMLTask\Merge\LibroMerge.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LibroMergeResult.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{575459F0-E5E3-4907-A4FB-DDBCD8737BEC}"
+      DTS:ObjectName="LibroMergeResult.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="D:\Udemy\SQL INTEGRATION SERVICES\Data_SSISUsandoXMLTask\Merge\LibroMergeResult.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Xml Merge"
+      DTS:CreationName="Microsoft.XMLTask"
+      DTS:Description="Tarea XML"
+      DTS:DTSID="{56BB535A-FF7E-4FBE-BC6B-5EA11DF4764D}"
+      DTS:ExecutableType="Microsoft.XMLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Xml Merge"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <XMLTaskData
+          OperationType="Merge"
+          Source="BaseLibroMerge.xml"
+          SecondOperandType="FileConnection"
+          SecondOperand="LibroMerge.xml"
+          SaveOperationResult="True"
+          Destination="LibroMergeResult.xml"
+          OverwriteDestination="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Xml to Diff"
       DTS:CreationName="Microsoft.XMLTask"
@@ -65,11 +117,22 @@
           Source="BaseLibroDiff.xml"
           SecondOperandType="FileConnection"
           SecondOperand="LibroDiff.xml"
+          OverwriteDestination="True"
           SaveDiffGram="True"
           DiffGramDestination="LibroDiffResult.xml" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{7DA3C56B-A97C-4380-887B-A1CB84B6B38C}"
+      DTS:From="Package\Xml to Diff"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Xml Merge" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -81,11 +144,37 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="130,42"
           Id="Package\Xml to Diff"
-          TopLeft="186,137" />
+          TopLeft="37,128" />
+        <NodeLayout
+          Size="132,42"
+          Id="Package\Xml Merge"
+          TopLeft="238,122" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="167,146">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="71,0"
+              Start="0,0"
+              End="63.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="63.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
