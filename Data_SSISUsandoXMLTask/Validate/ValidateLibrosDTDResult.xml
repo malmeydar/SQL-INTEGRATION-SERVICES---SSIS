@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root xmlns:ns="http://schemas.microsoft.com/xmltools/2002/xmlvalidation">
+	<metadata>
+		<result>true</result>
+		<errors>0</errors>
+		<warnings>0</warnings>
+		<startTime>2022-12-09T08:23:28.288</startTime>
+		<endTime>2022-12-09T08:23:28.288</endTime>
+		<xmlFile>D:\Udemy\SQL INTEGRATION SERVICES\Data_SSISUsandoXMLTask\Validate\ValidateLibrosDTD.xml</xmlFile>
+	</metadata>
+	<messages />
+</root>

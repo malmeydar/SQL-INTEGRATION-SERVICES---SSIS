@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xml" href="hello.xsl"?>
+<hello-world>
+	<greeter>An XSLT Programmer</greeter>
+	<greeter>Hello, world</greeter>
+</hello-world>
