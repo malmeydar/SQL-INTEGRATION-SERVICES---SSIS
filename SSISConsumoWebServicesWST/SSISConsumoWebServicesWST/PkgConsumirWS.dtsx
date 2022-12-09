@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{67E36B2E-9196-49B4-BFD3-807F10D254C9}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{96C143CE-77BB-40F6-825E-B17794DD2622}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,11 +29,33 @@
             <DTS:Property
               DTS:Name="ServerPassword"
               Sensitive="1"
-              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAApuVhmhG4pEK4nuGT8ED0nQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC1MSGJgh3yafKHJ6fW3dc32dia3yvamuLOSoClsz1BMAAAAAAOgAAAAAIAACAAAADMbmNWHOlutILSzsp2vdlpVrLLev6839N/i1mpFFQrWhAAAACVGJXj7oYGr1TJlFFFQI7zQAAAAELcHBX7nyFnJVfelJdV/nIvpPjzbDwy0npBCkko82KxCVhWCHvyUI7OSh3Zu8EsMVmho3/FwItQ/eW8gfIZ5Ho</DTS:Property>
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAApuVhmhG4pEK4nuGT8ED0nQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADAWCoLsqzlvPvI+iHGfVZ03IC7R3u+Iek40Zh3xTwv4gAAAAAOgAAAAAIAACAAAAC+398PUv8KL4JkY1m+Yy5q3Jpkid1S/MQS5AwlbhxjFxAAAABnnLH8W4bxtt/avDLEpFPsQAAAAD06okC5k/IuAwc9eTyPj6aHUVNK7TUcvHc70RtB8xyT6G478PUQvWp4rgRPJzOEKmfzKfY+L345zCRwEpUQBB8</DTS:Property>
             <DTS:Property
               DTS:Name="ProxyPassword"
               Sensitive="1"
-              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAApuVhmhG4pEK4nuGT8ED0nQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB4Oyi+lIVLF5yiS19l4o7QbcRNqhN8YVa6Ucaf9GKVtQAAAAAOgAAAAAIAACAAAADU7noEd7oF4Qe/DspWB6u+yjRiWPjdS4dMozppDwsbfBAAAADAh85HHcSXC1Va3fOLmmsyQAAAAB0KSROD63wl76EyV1P3Kkpsgzr8ZRtF+FvFhnWE/def9XcICgWvPgkyUVZVLfCXI8iK9CXxHNFH/hQjx7d/ZlY</DTS:Property>
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAApuVhmhG4pEK4nuGT8ED0nQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADUQzoGd4yjZb8P0YU3vX+VHm7CUT8S5ux3FzIvtYdlpQAAAAAOgAAAAAIAACAAAABK47EgaQ/CniNSZnTFurvxL3whFx9SMECGHTxtcHyBzBAAAAC4wjjkYh8/nJpnaMLyuN5eQAAAAJPbxdHhU+mM3xp36hPwAUQErIo7jm8CdeMWFYR8RCR9HpSI2IxA15Ju+qyxixRKQ0/jfNKAw1wPkc0aKfY0lkU</DTS:Property>
+          </DTS:HttpConnection>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[HTTP Connection Manager 1]"
+      DTS:CreationName="HTTP"
+      DTS:DTSID="{BD2D540E-728C-48F7-9778-0D1FDF75AE9E}"
+      DTS:ObjectName="HTTP Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL">
+          <DTS:HttpConnection
+            DTS:ServerURL="http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL">
+            <DTS:Property
+              DTS:Name="ServerPassword"
+              Sensitive="1"
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAApuVhmhG4pEK4nuGT8ED0nQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAp6NXUFnTE41A4TaeH1ADWOk8iM3oUr+zHZtkaXw9odwAAAAAOgAAAAAIAACAAAADvSCHYn3cjYobpV1MUyZKvdHXkw2S96TPKNmRrJtd2tRAAAACWfrPUljRmRM8dWuKGkZ8zQAAAAJ8LaR/PWMWzmFMqJnbcCx5b28jRtwsFlvyhudWw566ppBdci7uMqjl2i419asGChxwEC5OomEnXcWYWxYOZNP4</DTS:Property>
+            <DTS:Property
+              DTS:Name="ProxyPassword"
+              Sensitive="1"
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAApuVhmhG4pEK4nuGT8ED0nQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACGfw1TtuKZaTg41QWSP5Hj5Vtqe456Vqv7Np9GB++sUgAAAAAOgAAAAAIAACAAAAB3jbgPhyJzlDagHxzIrKHoq0WfAgEw+BjBa5iF9G+tRhAAAABMqv05VL9n6tTP/zKLuVegQAAAADhh2ECi+P9zVTpLdeL8z0uH3xNKZGBo0w+b644M2UgVwWpWyxXjCMdOaUKcY2mGyuDzdCVzoeKLyPycDzFwoU0</DTS:Property>
           </DTS:HttpConnection>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
@@ -48,8 +70,38 @@
           DTS:ConnectionString="D:\Udemy\SQL INTEGRATION SERVICES\Data_SSISConsumoWebServicesWST\JugadoresConTarjetasRojasAmarillas.xml" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ListaPaisesMoneda.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{D8825DD7-9480-4124-A84D-187D1B5EC0E4}"
+      DTS:ObjectName="ListaPaisesMoneda.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="D:\Udemy\SQL INTEGRATION SERVICES\Data_SSISConsumoWebServicesWST\ListaPaisesMoneda.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ListaPaisesPorContinente.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{E1BDAC27-6698-4F25-A2CC-02DBE1849B1F}"
+      DTS:ObjectName="ListaPaisesPorContinente.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="D:\Udemy\SQL INTEGRATION SERVICES\Data_SSISConsumoWebServicesWST\ListaPaisesPorContinente.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:Variables />
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D59EC66B-0832-4D85-8929-946A69CF37BF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CodigoIsoMoneda">
+      <DTS:VariableValue
+        DTS:DataType="8">EUR</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Web Services Futbol"
@@ -76,7 +128,82 @@
         </WSTask:WebServiceTaskData>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Web Services Moneda X Pais"
+      DTS:CreationName="Microsoft.WebServiceTask"
+      DTS:Description="Tarea Servicio Web"
+      DTS:DTSID="{F4B668BC-4A8B-4B18-8196-2F67CBD86EBD}"
+      DTS:ExecutableType="Microsoft.WebServiceTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Web Services Moneda X Pais"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <WSTask:WebServiceTaskData
+          WSTask:ConnectionName="{BD2D540E-728C-48F7-9778-0D1FDF75AE9E}"
+          WSTask:Service="CountryInfoService"
+          WSTask:WSDLFile="D:\Udemy\SQL INTEGRATION SERVICES\Data_SSISConsumoWebServicesWST\Paises.wsdl"
+          WSTask:OverwriteWSDLFile="True"
+          WSTask:OutputLocation="ListaPaisesMoneda.xml" xmlns:WSTask="www.microsoft.com/sqlserver/dts/tasks/webservicetask">
+          <WSTask:MethodInfo
+            WSTask:MethodName="CountriesUsingCurrency"
+            WSTask:MessageName="">
+            <WSTask:Documentation>Returns a list of all countries that use the same currency code. Pass a ISO currency code</WSTask:Documentation>
+            <WSTask:ParamInfo
+              WSTask:Name="sISOCurrencyCode"
+              WSTask:Datatype="string"
+              WSTask:ParamType="Variable"
+              WSTask:SeqNumber="0">
+              <WSTask:VariableValue>User::CodigoIsoMoneda</WSTask:VariableValue>
+            </WSTask:ParamInfo>
+          </WSTask:MethodInfo>
+        </WSTask:WebServiceTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Web Services Paises"
+      DTS:CreationName="Microsoft.WebServiceTask"
+      DTS:Description="Tarea Servicio Web"
+      DTS:DTSID="{16C2EA1E-89E4-49FE-A4C8-F37E680DBC97}"
+      DTS:ExecutableType="Microsoft.WebServiceTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Web Services Paises"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <WSTask:WebServiceTaskData
+          WSTask:ConnectionName="{BD2D540E-728C-48F7-9778-0D1FDF75AE9E}"
+          WSTask:Service="CountryInfoService"
+          WSTask:WSDLFile="D:\Udemy\SQL INTEGRATION SERVICES\Data_SSISConsumoWebServicesWST\Paises.wsdl"
+          WSTask:OverwriteWSDLFile="True"
+          WSTask:OutputLocation="ListaPaisesPorContinente.xml" xmlns:WSTask="www.microsoft.com/sqlserver/dts/tasks/webservicetask">
+          <WSTask:MethodInfo
+            WSTask:MethodName="ListOfCountryNamesGroupedByContinent"
+            WSTask:MessageName="">
+            <WSTask:Documentation>Returns a list of all stored counties grouped per continent</WSTask:Documentation>
+          </WSTask:MethodInfo>
+        </WSTask:WebServiceTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{B14EEC8C-DAE5-4EE7-8F58-53536701F9D5}"
+      DTS:From="Package\Web Services Futbol"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Web Services Paises" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{9B62C3C6-426B-4741-BA49-9B09EFC9BE7D}"
+      DTS:From="Package\Web Services Paises"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Web Services Moneda X Pais" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -88,11 +215,75 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="180,42"
           Id="Package\Web Services Futbol"
-          TopLeft="146,35" />
+          TopLeft="107,101" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Web Services Paises"
+          TopLeft="361,95" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="287,119">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="74,0"
+              Start="0,0"
+              End="66.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="66.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="224,42"
+          Id="Package\Web Services Moneda X Pais"
+          TopLeft="255,235" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="452.5,137">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-85.5,98"
+              Start="0,0"
+              End="-85.5,90.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45"
+                    Point2="0,49"
+                    Point3="-4,49" />
+                  <mssgle:LineSegment
+                    End="-81.5,49" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-81.5,49"
+                    Point2="-85.5,49"
+                    Point3="-85.5,53" />
+                  <mssgle:LineSegment
+                    End="-85.5,90.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
