@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-M0KHQK9</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAApuVhmhG4pEK4nuGT8ED0nQAAAAACAAAAAAAQZgAAAAEAACAAAABQrRH8XZsCdwMzpYFgpyPrj9hynLTUGh08dIMZVwzDsgAAAAAOgAAAAAIAACAAAACtuQLNzHeVF7hcLEludOlhhhP1FxRjw7qwzE5KK/5rQ5AAAADVfcVImfREdYX2h5QYcP9Qd/tCaU9Sx8ckM5pu53tvwqNYB5kG3l+VRE+R3HzpYg5BKkhGCMvv+Mb7bXaue1f7jz64g6w3jnltz/SpyuIJfwk0qdrCpa+yH0qPwZBWnKscpFgUT1zfQMVjZLyJzAa/8CZZBnP+gJuXvYRZA/ZkBkFQw0tPTGy7nZrKJhG8b/9AAAAAFQG/JdgEH9qpwUPZ9P/yYcHKTPWfd1oYW33AsnCsVbYNuxoLU0wLP3375eZtqMsij996xvYbVKAR+c1AkdhYPg==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAApuVhmhG4pEK4nuGT8ED0nQAAAAACAAAAAAAQZgAAAAEAACAAAAApT8R6+ASOHUh57K80FMHK12sw7y20wFIwZ2k09rb3ewAAAAAOgAAAAAIAACAAAAAeUflkDLZ0qm7r0plSKCm0Lr2f74DfiTIGstWpam1+ipAAAAC6EZketN901dJQuSgZeUcS0SsNd07aSenZmVYw55VMmAMN458FPtQXfogxePC3Ru/AIOfh6E4jNCgY8Zghx2z2KJ4C1FlQzKf/vAl7Fx8HbBX6FNMGeXNGEvTb6UQmcGMYFuRSojvxHCWTUtXuCyLCkD11XAzkMNUBCK6JaSwxzPMHYCjSNVNZWRxdwupIkc9AAAAAhRuXXJr37GjOZIsm7q5XbuHNDgBsLgNNjz+zoutlFp9dNLB9Xm09YKGsYULEAh5tIfP1Hcus+7sPauz3NIxw+Q==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -42,10 +42,10 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">2</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">4</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{45231EA4-39A1-4660-B4C1-D0056BD9FDC1}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{D1B5DE27-9E1E-4FE9-9AEB-0503065AD7DE}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -229,6 +229,36 @@
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Value">D:\Udemy\SQL INTEGRATION SERVICES\Data_SSISUsandoXMLTask\Merge\LibroMergeResult.xml</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.LibroPatchResult.xml.ConnectByProxy">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.LibroPatchResult.xml.ConnectionString">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\Udemy\SQL INTEGRATION SERVICES\Data_SSISUsandoXMLTask\Patch\LibroPatchResult.xml</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>

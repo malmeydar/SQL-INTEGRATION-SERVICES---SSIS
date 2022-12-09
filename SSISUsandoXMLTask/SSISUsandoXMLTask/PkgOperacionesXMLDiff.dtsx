@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{9663466F-BD23-4672-A8C8-8972211F8A40}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{D1B5DE27-9E1E-4FE9-9AEB-0503065AD7DE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -78,6 +78,17 @@
           DTS:ConnectionString="D:\Udemy\SQL INTEGRATION SERVICES\Data_SSISUsandoXMLTask\Merge\LibroMergeResult.xml" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LibroPatchResult.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{CEF7C973-D051-47B1-97D4-EE9B7F21E56B}"
+      DTS:ObjectName="LibroPatchResult.xml">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="D:\Udemy\SQL INTEGRATION SERVICES\Data_SSISUsandoXMLTask\Patch\LibroPatchResult.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
@@ -89,7 +100,7 @@
       DTS:ExecutableType="Microsoft.XMLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Xml Merge"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <XMLTaskData
@@ -99,6 +110,27 @@
           SecondOperand="LibroMerge.xml"
           SaveOperationResult="True"
           Destination="LibroMergeResult.xml"
+          OverwriteDestination="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Xml PAtch"
+      DTS:CreationName="Microsoft.XMLTask"
+      DTS:Description="Tarea XML"
+      DTS:DTSID="{D157AA42-B1E0-4D95-8425-0175B27F0726}"
+      DTS:ExecutableType="Microsoft.XMLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Xml PAtch"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <XMLTaskData
+          OperationType="Patch"
+          Source="BaseLibroDiff.xml"
+          SecondOperandType="FileConnection"
+          SecondOperand="LibroDiffResult.xml"
+          SaveOperationResult="True"
+          Destination="LibroPatchResult.xml"
           OverwriteDestination="True" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -132,6 +164,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\Xml Merge" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{B41374CD-62DA-4918-9B37-87009DD7F13F}"
+      DTS:From="Package\Xml to Diff"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Xml PAtch" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -144,7 +184,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="130,42"
           Id="Package\Xml to Diff"
@@ -167,6 +207,44 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="63.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Xml PAtch"
+          TopLeft="18,256" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="102,170">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-19,86"
+              Start="0,0"
+              End="-19,78.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39"
+                    Point2="0,43"
+                    Point3="-4,43" />
+                  <mssgle:LineSegment
+                    End="-15,43" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-15,43"
+                    Point2="-19,43"
+                    Point3="-19,47" />
+                  <mssgle:LineSegment
+                    End="-19,78.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
